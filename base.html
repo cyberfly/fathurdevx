@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <style>
+    /* Prevent FOUC */
+    [x-cloak] { display: none !important; }
+
+    /* Smooth page transitions */
+    body {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    body.page-transitioning {
+      opacity: 0;
+    }
+  </style>
+  <script>
+    // Add page transition effect
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fade in on load
+      document.body.style.opacity = '1';
+
+      // Fade out on navigation
+      const links = document.querySelectorAll('a[href^="/"]');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          // Only transition for internal links
+          if (href && !href.startsWith('#')) {
+            e.preventDefault();
+            document.body.classList.add('page-transitioning');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 150);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col" style="opacity: 0;">
+  <!-- Navigation -->
+  <nav class="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="/fathurdevx/" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          FathurDevX
+        </a>
+        <div class="flex gap-6">
+          <a href="/fathurdevx/" class="<%= activePage === 'home' ? 'text-white font-medium' : 'text-slate-300 hover:text-white transition-colors' %>">Home</a>
+          <a href="/fathurdevx/about.html" class="<%= activePage === 'about' ? 'text-white font-medium' : 'text-slate-300 hover:text-white transition-colors' %>">About</a>
+          <a href="/fathurdevx/contact.html" class="<%= activePage === 'contact' ? 'text-white font-medium' : 'text-slate-300 hover:text-white transition-colors' %>">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 container mx-auto px-4 py-16">
+    <%- content %>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800/50 backdrop-blur-sm border-t border-slate-700 mt-auto">
+    <div class="container mx-auto px-4 py-8 text-center text-slate-400">
+      <p>&copy; 2024 FathurDevX. Ready for GitHub Pages deployment</p>
+    </div>
+  </footer>
+</body>
+</html>
