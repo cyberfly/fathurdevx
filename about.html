@@ -1,57 +1,230 @@
-<div class="max-w-3xl mx-auto">
-  <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-    About FathurDevX
+<!-- About Hero -->
+<section class="max-w-4xl mx-auto mb-20 text-center relative">
+  <!-- Decor: Floating Triangle -->
+  <div
+    class="absolute -top-10 -left-10 text-quaternary animate-bounce duration-[3000ms]"
+  >
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2L2 22h20L12 2z" />
+    </svg>
+  </div>
+
+  <h1
+    class="font-heading font-black text-5xl md:text-6xl text-foreground mb-6 relative inline-block"
+  >
+    About
+    <span class="relative">
+      FathurDevX
+      <!-- Decor: Squiggle Underline -->
+      <svg
+        class="absolute w-full h-4 -bottom-2 left-0 text-accent"
+        viewBox="0 0 100 10"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 5 Q 50 10 100 5"
+          stroke="currentColor"
+          stroke-width="4"
+          fill="none"
+        />
+      </svg>
+    </span>
   </h1>
 
-  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-700 space-y-6">
-    <p class="text-slate-300 text-lg leading-relaxed">
-      FathurDevX is a modern web development template built with the latest technologies
-      to provide a solid foundation for your projects.
-    </p>
+  <p class="text-xl md:text-2xl text-mutedForeground leading-relaxed mb-8">
+    Not just another template. A
+    <span class="font-bold text-foreground bg-tertiary/20 px-2 rounded-md"
+      >digital playground</span
+    >
+    built for modern web development.
+  </p>
+</section>
 
-    <div>
-      <h2 class="text-2xl font-semibold mb-4 text-white">Technology Stack</h2>
-      <ul class="space-y-3 text-slate-300">
-        <li class="flex items-start">
-          <span class="text-blue-400 mr-2">•</span>
-          <span><strong class="text-white">Vite</strong> - Lightning-fast build tool and dev server</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-blue-400 mr-2">•</span>
-          <span><strong class="text-white">Tailwind CSS</strong> - Utility-first CSS framework</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-blue-400 mr-2">•</span>
-          <span><strong class="text-white">Alpine.js</strong> - Lightweight JavaScript framework</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-blue-400 mr-2">•</span>
-          <span><strong class="text-white">vite-plugin-html</strong> - Multi-page support with shared layouts</span>
-        </li>
-      </ul>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
+  <!-- Left Column: Story/Intro -->
+  <div class="space-y-8">
+    <div
+      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard relative overflow-hidden group hover:-translate-y-1 hover:shadow-hard-hover transition-all duration-300"
+    >
+      <!-- Decor: Circle in corner -->
+      <div
+        class="absolute -top-6 -right-6 w-24 h-24 bg-secondary rounded-full opacity-20 group-hover:scale-125 transition-transform"
+      ></div>
+
+      <h2 class="font-heading font-bold text-2xl mb-4 flex items-center gap-3">
+        <span
+          class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center border-2 border-border-dark shadow-sm"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </span>
+        The Mission
+      </h2>
+      <p class="text-mutedForeground leading-relaxed">
+        FathurDevX is designed to be the antidote to boring, sterile corporate
+        templates. We believe web development should be
+        <strong>fun, tactile, and expressive</strong>.
+      </p>
+      <p class="text-mutedForeground leading-relaxed mt-4">
+        Built with the latest tech stack, it provides a solid yet flexible
+        foundation for your creative projects.
+      </p>
     </div>
 
+    <!-- Tech Stack "Stickers" -->
     <div>
-      <h2 class="text-2xl font-semibold mb-4 text-white">Features</h2>
-      <ul class="space-y-3 text-slate-300">
-        <li class="flex items-start">
-          <span class="text-purple-400 mr-2">✓</span>
-          <span>Multi-page architecture with shared base layout</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-purple-400 mr-2">✓</span>
-          <span>Fast development with hot module replacement</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-purple-400 mr-2">✓</span>
-          <span>Optimized production builds</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-purple-400 mr-2">✓</span>
-          <span>GitHub Pages deployment ready</span>
-        </li>
-      </ul>
+      <h3 class="font-heading font-bold text-xl mb-6 flex items-center gap-2">
+        <span class="w-8 h-2 bg-quaternary rounded-full"></span>
+        Tech Stack
+      </h3>
+      <div class="flex flex-wrap gap-4">
+        <!-- Item 1 -->
+        <div
+          class="group relative bg-white border-2 border-border-dark rounded-lg px-4 py-2 shadow-hard hover:shadow-hard-hover hover:-translate-y-1 transition-all duration-200 cursor-default"
+        >
+          <span class="font-bold text-foreground">Vite</span>
+          <span
+            class="absolute -top-2 -right-2 text-accent opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </span>
+        </div>
+        <!-- Item 2 -->
+        <div
+          class="group relative bg-white border-2 border-border-dark rounded-lg px-4 py-2 shadow-hard hover:shadow-hard-hover hover:-translate-y-1 transition-all duration-200 cursor-default"
+        >
+          <span class="font-bold text-foreground">Tailwind CSS</span>
+        </div>
+        <!-- Item 3 -->
+        <div
+          class="group relative bg-white border-2 border-border-dark rounded-lg px-4 py-2 shadow-hard hover:shadow-hard-hover hover:-translate-y-1 transition-all duration-200 cursor-default"
+        >
+          <span class="font-bold text-foreground">Alpine.js</span>
+        </div>
+        <!-- Item 4 -->
+        <div
+          class="group relative bg-white border-2 border-border-dark rounded-lg px-4 py-2 shadow-hard hover:shadow-hard-hover hover:-translate-y-1 transition-all duration-200 cursor-default"
+        >
+          <span class="font-bold text-foreground">PostCSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Features List -->
+  <div class="md:mt-12">
+    <div
+      class="relative bg-tertiary border-2 border-border-dark rounded-2xl p-1 shadow-hard rotate-1 hover:rotate-0 transition-transform duration-300"
+    >
+      <div class="bg-white rounded-xl p-8 border-2 border-border-dark h-full">
+        <h2
+          class="font-heading font-black text-3xl mb-8 text-center uppercase tracking-widest"
+        >
+          Features
+        </h2>
+
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4 group">
+            <div
+              class="w-8 h-8 rounded-full bg-secondary border-2 border-border-dark flex-shrink-0 flex items-center justify-center text-white shadow-[2px_2px_0px_#1E293B] group-hover:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div>
+              <strong class="block text-foreground text-lg"
+                >Multi-page Architecture</strong
+              >
+              <span class="text-mutedForeground text-sm"
+                >Shared layouts with vite-plugin-html</span
+              >
+            </div>
+          </li>
+
+          <li class="flex items-start gap-4 group">
+            <div
+              class="w-8 h-8 rounded-full bg-accent border-2 border-border-dark flex-shrink-0 flex items-center justify-center text-white shadow-[2px_2px_0px_#1E293B] group-hover:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div>
+              <strong class="block text-foreground text-lg"
+                >Fast Development</strong
+              >
+              <span class="text-mutedForeground text-sm"
+                >Lightning fast HMR with Vite</span
+              >
+            </div>
+          </li>
+
+          <li class="flex items-start gap-4 group">
+            <div
+              class="w-8 h-8 rounded-full bg-quaternary border-2 border-border-dark flex-shrink-0 flex items-center justify-center text-white shadow-[2px_2px_0px_#1E293B] group-hover:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <div>
+              <strong class="block text-foreground text-lg"
+                >Production Ready</strong
+              >
+              <span class="text-mutedForeground text-sm"
+                >Optimized assets and minification</span
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-
