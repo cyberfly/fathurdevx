@@ -30,6 +30,11 @@
     <script>
       // Add page transition effect (fade out on navigation)
       document.addEventListener("DOMContentLoaded", () => {
+        // Reset transition state when navigating back/forward (bfcache).
+        window.addEventListener("pageshow", () => {
+          document.body.classList.remove("page-transitioning");
+        });
+
         const links = document.querySelectorAll('a[href^="/"]');
         links.forEach((link) => {
           link.addEventListener("click", (e) => {
