@@ -1,3 +1,7 @@
+## Architecture
+
+After creating new html page, register it in vite.config.js and add it to the pages array in createMpaPlugin.
+
 ## Design System
 
 <role>
