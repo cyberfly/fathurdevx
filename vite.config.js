@@ -126,13 +126,38 @@ function generatePortfolioItemContent(item, allItems) {
 
   const tagsHtml = generateTagsHtml(frontmatter.tags);
 
+  // Generate hero image HTML
+  const heroImageUrl = frontmatter.heroImage || frontmatter.thumbnail;
+  let heroImageHtml;
+
+  if (heroImageUrl) {
+    heroImageHtml = `<img src="${heroImageUrl}" alt="${frontmatter.title}" class="w-full h-full object-cover" />`;
+  } else {
+    // Generate colored background with title overlay (matching card thumbnail style)
+    const colors = ['#8B5CF6', '#F472B6', '#FBBF24', '#34D399'];
+    let hash = 0;
+    for (let i = 0; i < item.slug.length; i++) {
+      hash = item.slug.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const color = colors[Math.abs(hash) % colors.length];
+
+    heroImageHtml = `
+      <div class="absolute inset-0" style="background-color: ${color};">
+        <!-- Diagonal stripe pattern overlay -->
+        <div class="absolute inset-0 opacity-15" style="background-image: repeating-linear-gradient(45deg, #1E293B 0px, #1E293B 2px, transparent 2px, transparent 10px);"></div>
+        <!-- Title overlay -->
+        <div class="absolute inset-0 flex items-center justify-center p-12">
+          <h2 class="font-heading font-bold text-5xl md:text-6xl text-white text-center" style="text-shadow: 4px 4px 0px rgba(30, 41, 59, 0.3);">
+            ${frontmatter.title}
+          </h2>
+        </div>
+      </div>
+    `;
+  }
+
   return portfolioItemTemplate
     .replace(/<%=\s*title\s*%>/g, frontmatter.title)
     .replace(/<%=\s*description\s*%>/g, frontmatter.description || "")
-    .replace(
-      /<%=\s*heroImage\s*%>/g,
-      frontmatter.heroImage || frontmatter.thumbnail
-    )
     .replace(/<%=\s*category\s*%>/g, frontmatter.category || "")
     .replace(/<%=\s*liveUrl\s*%>/g, frontmatter.liveUrl || "#")
     .replace(/<%=\s*sourceUrl\s*%>/g, frontmatter.sourceUrl || "#")
@@ -141,6 +166,7 @@ function generatePortfolioItemContent(item, allItems) {
     .replace(/<%=\s*nextTitle\s*%>/g, nextItem.frontmatter.title)
     .replace(/<%=\s*nextSlug\s*%>/g, nextItem.slug)
     .replace(/<%=\s*nextCategory\s*%>/g, nextItem.frontmatter.category || "")
+    .replace(/<%-\s*heroImageHtml\s*%>/g, heroImageHtml)
     .replace(/<%-\s*tagsHtml\s*%>/g, tagsHtml)
     .replace(/<%-\s*content\s*%>/g, content);
 }
