@@ -14,7 +14,8 @@ import {
 } from "./lib/templates.js";
 
 const __dirname = resolve();
-const BASE_PATH = "/fathurdevx";
+// Use root for custom domain builds so asset URLs resolve correctly.
+const BASE_PATH = "";
 
 // === CONTENT DIRECTORIES ===
 const blogDir = resolve(__dirname, "content/blog");
