@@ -13,6 +13,65 @@ import {
   generateTagsHtml,
 } from "./lib/templates.js";
 
+// Custom plugin to watch content files and trigger full reload
+function contentWatcherPlugin() {
+  return {
+    name: "content-watcher",
+    configureServer(server) {
+      const __dirname = resolve();
+
+      // Watch content directories and templates
+      const watchPaths = [
+        resolve(__dirname, "content/blog"),
+        resolve(__dirname, "content/portfolio"),
+        resolve(__dirname, "templates"),
+        resolve(__dirname, "index.html"),
+        resolve(__dirname, "about.html"),
+        resolve(__dirname, "contact.html"),
+      ];
+
+      watchPaths.forEach(path => {
+        server.watcher.add(path);
+      });
+
+      // Trigger full reload when content changes
+      server.watcher.on("change", (file) => {
+        if (
+          file.includes("/content/blog/") ||
+          file.includes("/content/portfolio/") ||
+          file.includes("/templates/") ||
+          file.endsWith("index.html") ||
+          file.endsWith("about.html") ||
+          file.endsWith("contact.html")
+        ) {
+          console.log(`Content changed: ${file}`);
+          server.restart();
+        }
+      });
+
+      server.watcher.on("add", (file) => {
+        if (
+          file.includes("/content/blog/") ||
+          file.includes("/content/portfolio/")
+        ) {
+          console.log(`Content added: ${file}`);
+          server.restart();
+        }
+      });
+
+      server.watcher.on("unlink", (file) => {
+        if (
+          file.includes("/content/blog/") ||
+          file.includes("/content/portfolio/")
+        ) {
+          console.log(`Content removed: ${file}`);
+          server.restart();
+        }
+      });
+    },
+  };
+}
+
 const __dirname = resolve();
 // Use root for custom domain builds so asset URLs resolve correctly.
 const BASE_PATH = "";
@@ -105,7 +164,7 @@ function generateBlogPostContent(post) {
     .replace(
       /<%=\s*authorAvatar\s*%>/g,
       frontmatter.author?.avatar ||
-        "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+        "/images/profile-alt.jpg"
     )
     .replace(
       /<%=\s*authorBio\s*%>/g,
@@ -286,6 +345,7 @@ const rewrites = [
 
 export default defineConfig({
   plugins: [
+    contentWatcherPlugin(),
     tailwindcss(),
     createMpaPlugin({
       template: "base.html",
