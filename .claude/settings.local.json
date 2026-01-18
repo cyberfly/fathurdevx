@@ -5,7 +5,10 @@
       "Bash(npm init:*)",
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(timeout 3 npm run dev:*)"
+      "Bash(timeout 3 npm run dev:*)",
+      "Bash(for file in *.md)",
+      "Bash(do sed -i '' '/^thumbnail:.*placehold\\\\.co/d' \"$file\")",
+      "Bash(done)"
     ]
   }
 }

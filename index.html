@@ -1,6 +1,6 @@
 <!-- Hero Section -->
 <section
-  class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-32 relative"
+  class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-32 relative animate-on-scroll"
 >
   <!-- Left: Content -->
   <div class="relative z-10 order-2 md:order-1 text-center md:text-left">
@@ -93,7 +93,7 @@
 
       <!-- Image with Clip Path -->
       <img
-        src="/assets/hero.png"
+        src="/images/profile-alt.jpg"
         alt="Creative Developer Illustration"
         class="relative w-full h-full object-cover rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] border-2 border-border-dark bg-white transform translate-x-2 -translate-y-2 group-hover:translate-x-4 group-hover:-translate-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
       />
@@ -142,7 +142,7 @@
 </section>
 
 <!-- Skills/Services Section (Features Grid) -->
-<section id="projects" class="relative py-20">
+<section id="projects" class="relative py-20 animate-on-scroll">
   <!-- Header -->
   <div class="text-center mb-20">
     <h2 class="font-heading font-black text-4xl text-foreground mb-4">
@@ -173,7 +173,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <!-- Card 1: Frontend -->
     <div
-      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:rotate-1 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:rotate-1 transition-all duration-300 group animate-on-scroll-rotate"
     >
       <div
         class="h-4 bg-accent border-b-2 border-border-dark rounded-t-[10px]"
@@ -211,7 +211,7 @@
 
     <!-- Card 2: Design -->
     <div
-      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:-rotate-1 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:-rotate-1 transition-all duration-300 group animate-on-scroll-scale"
     >
       <div
         class="h-4 bg-secondary border-b-2 border-border-dark rounded-t-[10px]"
@@ -256,7 +256,7 @@
 
     <!-- Card 3: Backend -->
     <div
-      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:rotate-1 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:rotate-1 transition-all duration-300 group animate-on-scroll-rotate"
     >
       <div
         class="h-4 bg-tertiary border-b-2 border-border-dark rounded-t-[10px]"
@@ -303,7 +303,7 @@
 </section>
 
 <!-- Featured Projects Section -->
-<section class="py-20">
+<section class="py-20 animate-on-scroll">
   <div class="flex items-center justify-between mb-12">
     <div>
       <h2 class="font-heading font-black text-3xl md:text-4xl text-foreground">
@@ -374,7 +374,7 @@
 </section>
 
 <!-- Latest Blog Posts Section -->
-<section class="py-20">
+<section class="py-20 animate-on-scroll">
   <div class="flex items-center justify-between mb-12">
     <div>
       <h2 class="font-heading font-black text-3xl md:text-4xl text-foreground">
@@ -445,7 +445,7 @@
 </section>
 
 <!-- Technical Toolkit Section -->
-<section id="skills" class="py-20 relative overflow-hidden">
+<section id="skills" class="py-20 relative overflow-hidden animate-on-scroll">
   <!-- Decorative Background Elements -->
   <div
     class="absolute top-10 right-10 w-32 h-32 bg-secondary rounded-full opacity-10 -z-10 animate-bounce"
@@ -485,7 +485,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
     <!-- Frontend -->
     <div
-      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
     >
       <div class="flex items-center gap-3 mb-6">
         <div
@@ -523,26 +523,50 @@
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >TypeScript</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
           >Vue.js</span
         >
         <span
-          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
           >React</span
         >
         <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >Next.js</span
+        >
+        <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
-          >Tailwind CSS</span
+          >Nuxt.js</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >Tailwind CSS</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
           >Angular</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >Alpine.js</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >HTMX</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >WordPress</span
         >
       </div>
     </div>
 
     <!-- Backend -->
     <div
-      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
     >
       <div class="flex items-center gap-3 mb-6">
         <div
@@ -582,15 +606,23 @@
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
-          >MySQL</span
+          >Ruby on Rails</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
-          >PostgreSQL</span
+          >Django</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
           >Node.js</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >MySQL</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >PostgreSQL</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-secondary hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
@@ -601,7 +633,7 @@
 
     <!-- Others -->
     <div
-      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group"
+      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
     >
       <div class="flex items-center gap-3 mb-6">
         <div
@@ -624,7 +656,7 @@
             />
           </svg>
         </div>
-        <h3 class="font-heading font-bold text-2xl">Tools & Ops</h3>
+        <h3 class="font-heading font-bold text-2xl">Tools & More</h3>
       </div>
       <div class="flex flex-wrap gap-3">
         <span
@@ -651,13 +683,29 @@
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
           >Linux</span
         >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >UX Design</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >Product Management</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >IT Training</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >Digital Marketing</span
+        >
       </div>
     </div>
   </div>
 </section>
 
 <!-- Footer Banner / CTA -->
-<section class="mt-20">
+<section class="mt-20 animate-on-scroll-scale">
   <div
     class="bg-quaternary border-2 border-border-dark rounded-2xl p-12 relative overflow-hidden text-center shadow-hard"
   >

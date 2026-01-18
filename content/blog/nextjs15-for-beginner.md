@@ -11,7 +11,6 @@ tags:
 category: DEVELOPMENT
 author:
   name: Fathur
-  avatar: https://api.dicebear.com/7.x/avataaars/svg?seed=Felix
   bio: Frontend engineer obsessed with micro-interactions and making the web feel "alive".
 ---
 
