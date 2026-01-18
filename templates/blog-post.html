@@ -77,7 +77,7 @@
 
   <!-- Author Bio -->
   <div
-    class="bg-white border-2 border-border-dark rounded-xl p-8 shadow-hard flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left"
+    class="bg-white border-2 border-border-dark rounded-xl p-8 shadow-hard flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left mb-12"
   >
     <div
       class="w-24 h-24 rounded-full border-2 border-border-dark overflow-hidden flex-shrink-0 shadow-sm bg-accent/20"
@@ -94,5 +94,13 @@
         <%= authorBio %>
       </p>
     </div>
+  </div>
+
+  <!-- Post Navigation -->
+  <div
+    class="border-t-2 border-border-dark pt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+  >
+    <%- prevPostHtml %>
+    <%- nextPostHtml %>
   </div>
 </article>

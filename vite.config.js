@@ -137,9 +137,14 @@ function generatePortfolioListContent() {
 }
 
 // === GENERATE INDIVIDUAL BLOG POST CONTENT ===
-function generateBlogPostContent(post) {
+function generateBlogPostContent(post, allPosts) {
   const { frontmatter, content } = post;
   const dateFormatted = formatDate(frontmatter.date);
+
+  // Find next and previous posts (by date order)
+  const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   // Generate thumbnail HTML if exists
   const thumbnailHtml = frontmatter.thumbnail
@@ -153,7 +158,7 @@ function generateBlogPostContent(post) {
   `
     : "";
 
-  return blogPostTemplate
+  let result = blogPostTemplate
     .replace(/<%=\s*title\s*%>/g, frontmatter.title)
     .replace(/<%=\s*date\s*%>/g, dateFormatted)
     .replace(/<%=\s*category\s*%>/g, frontmatter.category || "BLOG")
@@ -173,6 +178,94 @@ function generateBlogPostContent(post) {
     )
     .replace(/<%-\s*thumbnailHtml\s*%>/g, thumbnailHtml)
     .replace(/<%-\s*content\s*%>/g, content);
+
+  // Generate previous post HTML
+  const prevPostHtml = prevPost
+    ? `
+    <a
+      href="/blog/${prevPost.slug}.html"
+      class="group flex items-center gap-4 text-left"
+    >
+      <div
+        class="w-12 h-12 rounded-full border-2 border-border-dark flex items-center justify-center bg-white group-hover:bg-accent group-hover:text-white transition-all shadow-hard group-hover:shadow-hard-hover flex-shrink-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 12H5" />
+          <path d="m12 19-7-7 7-7" />
+        </svg>
+      </div>
+      <div>
+        <div
+          class="text-mutedForeground font-bold uppercase tracking-widest text-xs mb-1"
+        >
+          Previous Post
+        </div>
+        <div
+          class="font-heading font-black text-xl group-hover:text-accent transition-colors"
+        >
+          ${prevPost.frontmatter.title}
+        </div>
+        <div class="text-mutedForeground text-sm">${prevPost.frontmatter.category || "BLOG"}</div>
+      </div>
+    </a>
+  `
+    : '<div></div>';
+
+  // Generate next post HTML
+  const nextPostHtml = nextPost
+    ? `
+    <a
+      href="/blog/${nextPost.slug}.html"
+      class="group flex items-center gap-4 text-right justify-end"
+    >
+      <div>
+        <div
+          class="text-mutedForeground font-bold uppercase tracking-widest text-xs mb-1"
+        >
+          Next Post
+        </div>
+        <div
+          class="font-heading font-black text-xl group-hover:text-accent transition-colors"
+        >
+          ${nextPost.frontmatter.title}
+        </div>
+        <div class="text-mutedForeground text-sm">${nextPost.frontmatter.category || "BLOG"}</div>
+      </div>
+      <div
+        class="w-12 h-12 rounded-full border-2 border-border-dark flex items-center justify-center bg-white group-hover:bg-accent group-hover:text-white transition-all shadow-hard group-hover:shadow-hard-hover flex-shrink-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </div>
+    </a>
+  `
+    : '<div></div>';
+
+  return result
+    .replace(/<%-\s*prevPostHtml\s*%>/g, prevPostHtml)
+    .replace(/<%-\s*nextPostHtml\s*%>/g, nextPostHtml);
 }
 
 // === GENERATE INDIVIDUAL PORTFOLIO ITEM CONTENT ===
@@ -311,7 +404,7 @@ const pages = [
       title: `${post.frontmatter.title} - FathurDevX`,
       description: post.frontmatter.description,
       activePage: "blog",
-      content: generateBlogPostContent(post),
+      content: generateBlogPostContent(post, blogPosts),
     },
   })),
 
