@@ -350,5 +350,61 @@
         </p>
       </div>
     </footer>
+
+    <!-- Jump to Top Button -->
+    <button
+      id="jumpToTop"
+      class="fixed bottom-8 right-8 w-14 h-14 bg-accent text-white rounded-full border-2 border-border-dark shadow-hard hover:shadow-hard-hover hover:-translate-y-1 active:shadow-hard-active active:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 pointer-events-none z-50 flex items-center justify-center group"
+      aria-label="Jump to top"
+      title="Jump to top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="group-hover:-translate-y-0.5 transition-transform duration-300"
+      >
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </button>
+
+    <script>
+      // Jump to Top functionality
+      (function() {
+        const jumpToTopBtn = document.getElementById('jumpToTop');
+
+        // Show/hide button based on scroll position
+        function toggleJumpToTop() {
+          if (window.scrollY > 300) {
+            jumpToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            jumpToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            jumpToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            jumpToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+        }
+
+        // Smooth scroll to top with playful easing
+        function scrollToTop() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', toggleJumpToTop);
+        jumpToTopBtn.addEventListener('click', scrollToTop);
+
+        // Initial check
+        toggleJumpToTop();
+      })();
+    </script>
   </body>
 </html>
