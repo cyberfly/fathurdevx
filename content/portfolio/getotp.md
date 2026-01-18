@@ -4,7 +4,6 @@ slug: getotp
 date: 2023-12-01
 description: "GetOTP is an OTP as a Service that provides OTP for developers"
 category: Web App
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=GetOTP
 heroImage: /images/getotp2.png
 tags:
   - HTMX

@@ -4,7 +4,6 @@ slug: kafkaiv3-app
 date: 2024-12-01
 description: "Kafkai leverages advanced keyword analysis and competitor insights to deliver proven SEO strategies."
 category: AI Tool
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Kafkai+V3
 heroImage: /images/kafkaiv3/catchup.png
 tags:
   - HTMX

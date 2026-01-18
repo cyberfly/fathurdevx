@@ -4,8 +4,6 @@ slug: codeigniter-training
 date: 2023-01-01
 description: "CodeIgniter Training for government agencies"
 category: Training
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=CodeIgniter+Training
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Training+Screenshots
 tags:
   - CodeIgniter
   - JQuery

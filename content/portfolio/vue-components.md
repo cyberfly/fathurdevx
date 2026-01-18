@@ -4,8 +4,6 @@ slug: vue-components
 date: 2023-02-26
 description: "A collection of Vue + Laravel Components for inhouse development"
 category: Developer Tool
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Vue+Library
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Vue+Components
 tags:
   - Laravel
   - VueJS

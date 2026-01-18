@@ -4,7 +4,6 @@ slug: linkedwind
 date: 2023-02-28
 description: "LinkedWind is LinkedIn clone using TailwindCSS. Build as part of online TailwindCSS training."
 category: Practice
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=LinkedWind
 heroImage: /images/linkedwind.png
 tags:
   - TailwindCSS

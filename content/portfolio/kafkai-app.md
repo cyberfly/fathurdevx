@@ -4,7 +4,6 @@ slug: kafkai-app
 date: 2024-01-01
 description: "Kafkai is a Powerful and Easy To Use AI Content Writer"
 category: AI Tool
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Kafkai
 heroImage: /images/kafkai-app2.png
 tags:
   - NextJs

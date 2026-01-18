@@ -4,8 +4,6 @@ slug: laravel-training
 date: 2023-01-02
 description: "Laravel Training for government agencies."
 category: Training
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Laravel+Training
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Laravel+Training+Class
 tags:
   - Laravel
   - Vue

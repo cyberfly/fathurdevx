@@ -4,8 +4,6 @@ slug: laravel-fullstack-generator
 date: 2023-02-25
 description: "Generator to instantly generate Laravel API and Angular codes"
 category: Developer Tool
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=FullStackMe
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Generator+Demo
 tags:
   - Laravel
   - Angular

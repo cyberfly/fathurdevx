@@ -4,8 +4,6 @@ slug: tailwindcss-training
 date: 2023-01-22
 description: "Practical Tailwind CSS Training building LinkedIn clone"
 category: Training
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Tailwind+Training
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Training+Session
 tags:
   - TailwindCSS
 liveUrl: #

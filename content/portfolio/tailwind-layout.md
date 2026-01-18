@@ -4,7 +4,6 @@ slug: tailwind-layout
 date: 2023-03-10
 description: "Tailwind Layout is a collection of useful TailwindCSS patterns and components"
 category: Developer Tool
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Tailwind+Layout
 heroImage: /images/tailwind-layout1.png
 tags:
   - TailwindCSS

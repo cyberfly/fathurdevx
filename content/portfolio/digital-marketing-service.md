@@ -4,8 +4,6 @@ slug: digital-marketing-service
 date: 2023-01-01
 description: "Digital Marketing Service for small business"
 category: Marketing
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Digital+Marketing
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Marketing+Strategy
 tags:
   - Facebook Ads
   - Copywriting

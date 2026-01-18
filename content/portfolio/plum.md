@@ -4,8 +4,6 @@ slug: plum
 date: 2023-03-01
 description: "Plum is a custom Project Management Tool for startup"
 category: Web App
-thumbnail: https://placehold.co/600x400/8B5CF6/FFFFFF?text=Plum+PM
-heroImage: https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Plum+Dashboard
 tags:
   - VueJS
   - TailwindCSS
