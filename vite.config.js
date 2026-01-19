@@ -174,7 +174,7 @@ function generateBlogPostContent(post, allPosts) {
     .replace(
       /<%=\s*authorBio\s*%>/g,
       frontmatter.author?.bio ||
-        "Frontend engineer building playful web experiences."
+        "Building products at the intersection of strategy and code. Product Manager who codes, Developer who understands users."
     )
     .replace(/<%-\s*thumbnailHtml\s*%>/g, thumbnailHtml)
     .replace(/<%-\s*content\s*%>/g, content);
