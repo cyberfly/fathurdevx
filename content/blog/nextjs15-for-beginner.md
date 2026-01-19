@@ -11,7 +11,6 @@ tags:
 category: DEVELOPMENT
 author:
   name: Fathur
-  bio: Frontend engineer obsessed with micro-interactions and making the web feel "alive".
 ---
 
 # NextJS 15 for Beginner
