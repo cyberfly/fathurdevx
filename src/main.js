@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = await fetch('https://a.firaform.com/api/f/LpmzlmGdpomgmT2vGCQiU', {
         method: 'POST',
         headers: {
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData)
