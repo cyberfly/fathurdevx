@@ -1,40 +1,4 @@
-// Enhanced page transitions with View Transitions API
-export function initPageTransitions() {
-  // Check if View Transitions API is supported
-  const supportsViewTransitions = 'startViewTransition' in document;
-
-  // Reset transition state when navigating back/forward (bfcache)
-  window.addEventListener("pageshow", (event) => {
-    if (!supportsViewTransitions) {
-      document.body.classList.remove("page-transitioning");
-    }
-  });
-
-  // Handle internal link clicks
-  const links = document.querySelectorAll('a[href^="/"]');
-  links.forEach((link) => {
-    link.addEventListener("click", async (e) => {
-      const href = link.getAttribute("href");
-
-      // Only transition for internal links (not anchors)
-      if (href && !href.startsWith("#") && href !== window.location.pathname) {
-        e.preventDefault();
-
-        // Use View Transitions API if available
-        if (supportsViewTransitions) {
-          document.startViewTransition(() => {
-            window.location.href = href;
-          });
-        } else {
-          // Fallback animation - reduced delay for snappier feel
-          document.body.classList.add("page-transitioning");
-          await new Promise(resolve => setTimeout(resolve, 200));
-          window.location.href = href;
-        }
-      }
-    });
-  });
-}
+// Page transitions removed - pages load normally without transition effects
 
 // Intersection Observer for scroll animations
 export function initScrollAnimations() {
@@ -96,7 +60,6 @@ export function initJumpToTop() {
 
 // Initialize all features when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  initPageTransitions();
   initScrollAnimations();
   initJumpToTop();
 });

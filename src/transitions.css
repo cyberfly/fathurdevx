@@ -13,61 +13,7 @@ body {
   max-width: 100vw;
 }
 
-/* Enhanced page transitions with playful motion */
-@supports (view-transition-name: none) {
-  /* Use View Transitions API for modern browsers */
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.25s;
-    animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-  }
-
-  ::view-transition-old(root) {
-    animation-name: slideOutLeft;
-  }
-
-  ::view-transition-new(root) {
-    animation-name: slideInRight;
-  }
-}
-
-/* Fallback for browsers without View Transitions API */
-@supports not (view-transition-name: none) {
-  body {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
-                transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-  }
-
-  body.page-transitioning {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-/* Animation keyframes */
-@keyframes slideOutLeft {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-10px) scale(0.99);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(10px) scale(0.99);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
+/* Page transition styles removed - pages load normally */
 
 /* Scroll reveal animations */
 @keyframes fadeInUp {
