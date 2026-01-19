@@ -92,7 +92,7 @@ const portfolioItems = getContentFromDirectory(portfolioDir, {
 
 // === RECENT ITEMS FOR HOMEPAGE ===
 const recentBlogPosts = blogPosts.slice(0, 3);
-const recentPortfolioItems = portfolioItems.slice(0, 3);
+const recentPortfolioItems = portfolioItems.slice(0, 6);
 
 // === TEMPLATE FILES ===
 const blogListTemplate = readFileSync(
