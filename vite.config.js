@@ -344,8 +344,8 @@ const pages = [
     name: "index",
     entry: "/src/main.js",
     data: {
-      title: "Home - FathurDevX",
-      description: "Built with Vite + Tailwind CSS + Alpine.js",
+      title: "Home - FathurDev",
+      description: "Bridging Product & Code",
       activePage: "home",
       content: generateHomepageContent(),
     },
@@ -354,8 +354,8 @@ const pages = [
     name: "about",
     entry: "/src/main.js",
     data: {
-      title: "About - FathurDevX",
-      description: "Learn more about FathurDevX",
+      title: "About - FathurDev",
+      description: "Learn more about FathurDev",
       activePage: "about",
       content: aboutContent,
     },
@@ -364,7 +364,7 @@ const pages = [
     name: "contact",
     entry: "/src/main.js",
     data: {
-      title: "Contact - FathurDevX",
+      title: "Contact - FathurDev",
       description: "Get in touch with us",
       activePage: "contact",
       content: contactContent,
@@ -376,7 +376,7 @@ const pages = [
     name: "blog",
     entry: "/src/main.js",
     data: {
-      title: "Blog - FathurDevX",
+      title: "Blog - FathurDev",
       description: "Thoughts & Tinkering",
       activePage: "blog",
       content: generateBlogListContent(),
@@ -388,7 +388,7 @@ const pages = [
     name: "portfolio",
     entry: "/src/main.js",
     data: {
-      title: "Portfolio - FathurDevX",
+      title: "Portfolio - FathurDev",
       description: "My Works",
       activePage: "portfolio",
       content: generatePortfolioListContent(),
@@ -401,7 +401,7 @@ const pages = [
     filename: `blog/${post.slug}.html`,
     entry: "/src/main.js",
     data: {
-      title: `${post.frontmatter.title} - FathurDevX`,
+      title: `${post.frontmatter.title} - FathurDev`,
       description: post.frontmatter.description,
       activePage: "blog",
       content: generateBlogPostContent(post, blogPosts),
@@ -414,7 +414,7 @@ const pages = [
     filename: `portfolio/${item.slug}.html`,
     entry: "/src/main.js",
     data: {
-      title: `${item.frontmatter.title} - FathurDevX`,
+      title: `${item.frontmatter.title} - FathurDev`,
       description: item.frontmatter.description,
       activePage: "portfolio",
       content: generatePortfolioItemContent(item, portfolioItems),
