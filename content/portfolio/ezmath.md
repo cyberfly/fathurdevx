@@ -81,22 +81,28 @@ The hint system with reduced rewards strikes a balance between helping strugglin
 
 ## Preview
 
-![EzMath Player Selection](/images/ezmath-players.jpg)
+<img src="/images/ezmath-players.jpg" alt="EzMath Player Selection" width="400" />
+
 *Multiple player profiles with progress tracking*
 
-![EzMath Game Modes](/images/ezmath-modes.jpg)
+<img src="/images/ezmath-modes.jpg" alt="EzMath Game Modes" width="400" />
+
 *Choose from multiple math game types*
 
-![EzMath Buddy Pet](/images/ezmath-buddy.jpg)
+<img src="/images/ezmath-buddy.jpg" alt="EzMath Buddy Pet" width="400" />
+
 *Your Math Buddy evolves as you learn*
 
-![EzMath Gameplay](/images/ezmath-game.jpg)
+<img src="/images/ezmath-game.jpg" alt="EzMath Gameplay" width="400" />
+
 *Clean, focused gameplay interface*
 
-![EzMath Evolution Stages](/images/ezmath-evolution.jpg)
+<img src="/images/ezmath-evolution.jpg" alt="EzMath Evolution Stages" width="400" />
+
 *Pet evolution stages from Egg to Legendary Dragon*
 
-![EzMath Hint System](/images/ezmath-hint.jpg)
+<img src="/images/ezmath-hint.jpg" alt="EzMath Hint System" width="400" />
+
 *Visual hints help students learn concepts*
 
 ## Live Demo
