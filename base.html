@@ -64,6 +64,12 @@
               Portfolio
             </a>
             <a
+              href="/training.html"
+              class="font-heading font-bold text-sm tracking-widest uppercase transition-colors duration-200 <%= activePage === 'training' ? 'text-accent' : 'text-mutedForeground hover:text-foreground' %>"
+            >
+              Training
+            </a>
+            <a
               href="/blog.html"
               class="font-heading font-bold text-sm tracking-widest uppercase transition-colors duration-200 <%= activePage === 'blog' ? 'text-accent' : 'text-mutedForeground hover:text-foreground' %>"
             >
@@ -210,6 +216,13 @@
             @click="mobileMenuOpen = false"
           >
             Blog
+          </a>
+          <a
+            href="/training.html"
+            class="block font-heading font-bold text-sm tracking-widest uppercase px-4 py-3 rounded-lg transition-all duration-200 <%= activePage === 'training' ? 'bg-accent text-white' : 'text-mutedForeground hover:bg-muted hover:text-foreground' %>"
+            @click="mobileMenuOpen = false"
+          >
+            Training
           </a>
           <a
             href="/contact.html"

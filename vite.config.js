@@ -10,6 +10,7 @@ import {
 import {
   generateBlogCard,
   generatePortfolioCard,
+  generateTrainingCard,
   generateTagsHtml,
 } from "./lib/templates.js";
 
@@ -24,9 +25,11 @@ function contentWatcherPlugin() {
       const watchPaths = [
         resolve(__dirname, "content/blog"),
         resolve(__dirname, "content/portfolio"),
+        resolve(__dirname, "content/training"),
         resolve(__dirname, "templates"),
         resolve(__dirname, "index.html"),
         resolve(__dirname, "about.html"),
+        resolve(__dirname, "training.html"),
         resolve(__dirname, "contact.html"),
       ];
 
@@ -39,9 +42,11 @@ function contentWatcherPlugin() {
         if (
           file.includes("/content/blog/") ||
           file.includes("/content/portfolio/") ||
+          file.includes("/content/training/") ||
           file.includes("/templates/") ||
           file.endsWith("index.html") ||
           file.endsWith("about.html") ||
+          file.endsWith("training.html") ||
           file.endsWith("contact.html")
         ) {
           console.log(`Content changed: ${file}`);
@@ -52,7 +57,8 @@ function contentWatcherPlugin() {
       server.watcher.on("add", (file) => {
         if (
           file.includes("/content/blog/") ||
-          file.includes("/content/portfolio/")
+          file.includes("/content/portfolio/") ||
+          file.includes("/content/training/")
         ) {
           console.log(`Content added: ${file}`);
           server.restart();
@@ -62,7 +68,8 @@ function contentWatcherPlugin() {
       server.watcher.on("unlink", (file) => {
         if (
           file.includes("/content/blog/") ||
-          file.includes("/content/portfolio/")
+          file.includes("/content/portfolio/") ||
+          file.includes("/content/training/")
         ) {
           console.log(`Content removed: ${file}`);
           server.restart();
@@ -79,6 +86,7 @@ const BASE_PATH = "";
 // === CONTENT DIRECTORIES ===
 const blogDir = resolve(__dirname, "content/blog");
 const portfolioDir = resolve(__dirname, "content/portfolio");
+const trainingDir = resolve(__dirname, "content/training");
 
 // === LOAD CONTENT ===
 const blogPosts = getContentFromDirectory(blogDir, {
@@ -89,10 +97,15 @@ const portfolioItems = getContentFromDirectory(portfolioDir, {
   sortBy: "order",
   order: "asc",
 });
+const trainingItems = getContentFromDirectory(trainingDir, {
+  sortBy: "order",
+  order: "asc",
+});
 
 // === RECENT ITEMS FOR HOMEPAGE ===
 const recentBlogPosts = blogPosts.slice(0, 3);
 const recentPortfolioItems = portfolioItems.slice(0, 6);
+const recentTrainingItems = trainingItems.slice(0, 6);
 
 // === TEMPLATE FILES ===
 const blogListTemplate = readFileSync(
@@ -111,14 +124,29 @@ const portfolioItemTemplate = readFileSync(
   resolve(__dirname, "templates/portfolio-item.html"),
   "utf-8"
 );
+const trainingListTemplate = readFileSync(
+  resolve(__dirname, "templates/training-list.html"),
+  "utf-8"
+);
+const trainingItemTemplate = readFileSync(
+  resolve(__dirname, "templates/training-item.html"),
+  "utf-8"
+);
 
 // === STATIC PAGE CONTENT ===
 const indexContent = readFileSync(resolve(__dirname, "index.html"), "utf-8");
 const aboutContent = readFileSync(resolve(__dirname, "about.html"), "utf-8");
+const trainingContentRaw = readFileSync(resolve(__dirname, "training.html"), "utf-8");
 const contactContent = readFileSync(
   resolve(__dirname, "contact.html"),
   "utf-8"
 );
+
+// === GENERATE TRAINING PAGE CONTENT ===
+function generateTrainingPageContent() {
+  const trainingListHtml = generateTrainingListContent();
+  return trainingContentRaw.replace("<%- trainingListContent %>", trainingListHtml);
+}
 
 // === GENERATE BLOG LISTING CONTENT ===
 function generateBlogListContent() {
@@ -134,6 +162,14 @@ function generatePortfolioListContent() {
     .map((item) => generatePortfolioCard(item, BASE_PATH))
     .join("\n");
   return portfolioListTemplate.replace("<%- portfolioCards %>", cardsHtml);
+}
+
+// === GENERATE TRAINING LISTING CONTENT ===
+function generateTrainingListContent() {
+  const cardsHtml = trainingItems
+    .map((item) => generateTrainingCard(item, BASE_PATH))
+    .join("\n");
+  return trainingListTemplate.replace("<%- trainingCards %>", cardsHtml);
 }
 
 // === GENERATE INDIVIDUAL BLOG POST CONTENT ===
@@ -323,6 +359,60 @@ function generatePortfolioItemContent(item, allItems) {
     .replace(/<%-\s*content\s*%>/g, content);
 }
 
+// === GENERATE INDIVIDUAL TRAINING ITEM CONTENT ===
+function generateTrainingItemContent(item, allItems) {
+  const { frontmatter, content } = item;
+
+  // Find next item (circular)
+  const currentIndex = allItems.findIndex((i) => i.slug === item.slug);
+  const nextItem = allItems[(currentIndex + 1) % allItems.length];
+
+  const tagsHtml = generateTagsHtml(frontmatter.tags);
+
+  // Generate hero image HTML
+  const heroImageUrl = frontmatter.heroImage || frontmatter.thumbnail;
+  let heroImageHtml;
+
+  if (heroImageUrl) {
+    heroImageHtml = `<img src="${heroImageUrl}" alt="${frontmatter.title}" class="w-full h-full object-cover" />`;
+  } else {
+    // Generate colored background with title overlay (matching card thumbnail style)
+    const colors = ['#8B5CF6', '#F472B6', '#FBBF24', '#34D399'];
+    let hash = 0;
+    for (let i = 0; i < item.slug.length; i++) {
+      hash = item.slug.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const color = colors[Math.abs(hash) % colors.length];
+
+    heroImageHtml = `
+      <div class="absolute inset-0" style="background-color: ${color};">
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 opacity-15" style="background-image: linear-gradient(#1E293B 1px, transparent 1px), linear-gradient(90deg, #1E293B 1px, transparent 1px); background-size: 20px 20px;"></div>
+        <!-- Title overlay -->
+        <div class="absolute inset-0 flex items-center justify-center p-12">
+          <h2 class="font-heading font-bold text-5xl md:text-6xl text-white text-center" style="text-shadow: 4px 4px 0px rgba(30, 41, 59, 0.3);">
+            ${frontmatter.title}
+          </h2>
+        </div>
+      </div>
+    `;
+  }
+
+  return trainingItemTemplate
+    .replace(/<%=\s*title\s*%>/g, frontmatter.title)
+    .replace(/<%=\s*description\s*%>/g, frontmatter.description || "")
+    .replace(/<%=\s*category\s*%>/g, frontmatter.category || "Training")
+    .replace(/<%=\s*liveUrl\s*%>/g, frontmatter.liveUrl || "#")
+    .replace(/<%=\s*challenge\s*%>/g, frontmatter.challenge || "")
+    .replace(/<%=\s*solution\s*%>/g, frontmatter.solution || "")
+    .replace(/<%=\s*nextTitle\s*%>/g, nextItem.frontmatter.title)
+    .replace(/<%=\s*nextSlug\s*%>/g, nextItem.slug)
+    .replace(/<%=\s*nextCategory\s*%>/g, nextItem.frontmatter.category || "Training")
+    .replace(/<%-\s*heroImageHtml\s*%>/g, heroImageHtml)
+    .replace(/<%-\s*tagsHtml\s*%>/g, tagsHtml)
+    .replace(/<%-\s*content\s*%>/g, content);
+}
+
 // === INJECT RECENT ITEMS INTO HOMEPAGE ===
 function generateHomepageContent() {
   const recentBlogHtml = recentBlogPosts
@@ -331,10 +421,14 @@ function generateHomepageContent() {
   const recentPortfolioHtml = recentPortfolioItems
     .map((item) => generatePortfolioCard(item, BASE_PATH))
     .join("\n");
+  const recentTrainingHtml = recentTrainingItems
+    .map((item) => generateTrainingCard(item, BASE_PATH))
+    .join("\n");
 
   return indexContent
     .replace("<%- recentBlogPosts %>", recentBlogHtml)
-    .replace("<%- recentPortfolioItems %>", recentPortfolioHtml);
+    .replace("<%- recentPortfolioItems %>", recentPortfolioHtml)
+    .replace("<%- recentTrainingItems %>", recentTrainingHtml);
 }
 
 // === BUILD PAGES ARRAY ===
@@ -358,6 +452,16 @@ const pages = [
       description: "Learn more about FathurDev",
       activePage: "about",
       content: aboutContent,
+    },
+  },
+  {
+    name: "training",
+    entry: "/src/main.js",
+    data: {
+      title: "Workshops & Training - FathurDev",
+      description: "Professional web development and AI training programs",
+      activePage: "training",
+      content: generateTrainingPageContent(),
     },
   },
   {
@@ -420,6 +524,19 @@ const pages = [
       content: generatePortfolioItemContent(item, portfolioItems),
     },
   })),
+
+  // Dynamic training item pages
+  ...trainingItems.map((item) => ({
+    name: `training-${item.slug}`,
+    filename: `training/${item.slug}.html`,
+    entry: "/src/main.js",
+    data: {
+      title: `${item.frontmatter.title} - FathurDev`,
+      description: item.frontmatter.description,
+      activePage: "training",
+      content: generateTrainingItemContent(item, trainingItems),
+    },
+  })),
 ];
 
 // Generate rewrites for nested pages
@@ -433,6 +550,11 @@ const rewrites = [
   ...portfolioItems.map((item) => ({
     from: new RegExp(`^${BASE_PATH}/portfolio/${item.slug}(\\.html)?$`),
     to: `${BASE_PATH}/portfolio/${item.slug}.html`,
+  })),
+  // Training item rewrites
+  ...trainingItems.map((item) => ({
+    from: new RegExp(`^${BASE_PATH}/training/${item.slug}(\\.html)?$`),
+    to: `${BASE_PATH}/training/${item.slug}.html`,
   })),
 ];
 
