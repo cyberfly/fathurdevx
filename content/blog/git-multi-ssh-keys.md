@@ -12,6 +12,8 @@ author:
 
 # Git Multi SSH Keys (Work & Personal) — Quick Tutorial
 
+If you juggle work and personal repos, one default key isn’t enough. This setup keeps identities separated and prevents the "permission denied" surprises.
+
 ## 1. Generate SSH Keys
 
 ### 1.1 Personal
@@ -34,6 +36,13 @@ cat ~/.ssh/id_ed25519_personal.pub
 cat ~/.ssh/id_ed25519_work.pub
 ```
 
+Quickly copy to clipboard (macOS):
+
+```bash
+pbcopy < ~/.ssh/id_ed25519_personal.pub
+pbcopy < ~/.ssh/id_ed25519_work.pub
+```
+
 Add each key to:
 
 * GitHub / GitLab / Bitbucket → **SSH Keys**
@@ -41,6 +50,12 @@ Add each key to:
 ---
 
 ## 3. Configure `~/.ssh/config`
+
+Quick edit with nano:
+
+```bash
+nano ~/.ssh/config
+```
 
 ```ssh
 # Personal
@@ -146,21 +161,3 @@ Offering public key: ~/.ssh/id_ed25519_personal
 * SSH key not added to provider
 * Wrong `Host` used in remote URL
 * `IdentityFile` mismatch
-
-### 9.2 Non-fast-forward on push
-
-```bash
-git pull --rebase origin main
-git push
-```
-
----
-
-## 10. Rules
-
-* Do NOT use `git@github.com:...` with multi keys
-* Always use SSH alias (`github.com-work`, `github.com-personal`)
-* One identity per key
-* One Git email per context
-
-```
