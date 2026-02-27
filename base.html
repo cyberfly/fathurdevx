@@ -89,6 +89,12 @@
               Portfolio
             </a>
             <a
+              href="/open-source.html"
+              class="font-heading font-bold text-sm tracking-widest uppercase transition-colors duration-200 <%= activePage === 'open-source' ? 'text-accent' : 'text-mutedForeground hover:text-foreground' %>"
+            >
+              Open Source
+            </a>
+            <a
               href="/training.html"
               class="font-heading font-bold text-sm tracking-widest uppercase transition-colors duration-200 <%= activePage === 'training' ? 'text-accent' : 'text-mutedForeground hover:text-foreground' %>"
             >
@@ -234,6 +240,13 @@
             @click="mobileMenuOpen = false"
           >
             Portfolio
+          </a>
+          <a
+            href="/open-source.html"
+            class="block font-heading font-bold text-sm tracking-widest uppercase px-4 py-3 rounded-lg transition-all duration-200 <%= activePage === 'open-source' ? 'bg-accent text-white' : 'text-mutedForeground hover:bg-muted hover:text-foreground' %>"
+            @click="mobileMenuOpen = false"
+          >
+            Open Source
           </a>
           <a
             href="/blog.html"
