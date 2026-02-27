@@ -31,6 +31,7 @@ function contentWatcherPlugin() {
         resolve(__dirname, "about.html"),
         resolve(__dirname, "training.html"),
         resolve(__dirname, "contact.html"),
+        resolve(__dirname, "open-source.html"),
       ];
 
       watchPaths.forEach(path => {
@@ -47,7 +48,8 @@ function contentWatcherPlugin() {
           file.endsWith("index.html") ||
           file.endsWith("about.html") ||
           file.endsWith("training.html") ||
-          file.endsWith("contact.html")
+          file.endsWith("contact.html") ||
+          file.endsWith("open-source.html")
         ) {
           console.log(`Content changed: ${file}`);
           server.restart();
@@ -151,6 +153,7 @@ const contactContent = readFileSync(
   resolve(__dirname, "contact.html"),
   "utf-8"
 );
+const openSourceContent = readFileSync(resolve(__dirname, "open-source.html"), "utf-8");
 
 // === GENERATE TRAINING PAGE CONTENT ===
 function generateTrainingPageContent() {
@@ -512,6 +515,16 @@ const pages = [
       description: "Get in touch with us",
       activePage: "contact",
       content: contactContent,
+    },
+  },
+  {
+    name: "open-source",
+    entry: "/src/main.js",
+    data: {
+      title: "Open Source - FathurDev",
+      description: "Selected projects I've open-sourced on GitHub.",
+      activePage: "open-source",
+      content: openSourceContent,
     },
   },
 
