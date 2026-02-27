@@ -82,6 +82,16 @@ function contentWatcherPlugin() {
 const __dirname = resolve();
 // Use root for custom domain builds so asset URLs resolve correctly.
 const BASE_PATH = "";
+const SITE_URL = "https://fathurdev.uk";
+
+function toAbsoluteUrl(pathOrUrl) {
+  if (!pathOrUrl) return null;
+  if (pathOrUrl.startsWith("http://") || pathOrUrl.startsWith("https://")) {
+    return pathOrUrl;
+  }
+  const normalizedPath = pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`;
+  return `${SITE_URL}${normalizedPath}`;
+}
 
 // === CONTENT DIRECTORIES ===
 const blogDir = resolve(__dirname, "content/blog");
@@ -507,6 +517,11 @@ const pages = [
     data: {
       title: `${post.frontmatter.title} - FathurDev`,
       description: post.frontmatter.description,
+      ogTitle: `${post.frontmatter.title} - FathurDev`,
+      ogDescription: post.frontmatter.description,
+      ogType: "article",
+      ogUrl: `${SITE_URL}/blog/${post.slug}.html`,
+      ogImage: toAbsoluteUrl(post.frontmatter.ogImage || post.frontmatter.thumbnail || "/images/profile.jpg"),
       activePage: "blog",
       content: generateBlogPostContent(post, blogPosts),
     },
@@ -520,6 +535,13 @@ const pages = [
     data: {
       title: `${item.frontmatter.title} - FathurDev`,
       description: item.frontmatter.description,
+      ogTitle: `${item.frontmatter.title} - FathurDev`,
+      ogDescription: item.frontmatter.description,
+      ogType: "article",
+      ogUrl: `${SITE_URL}/portfolio/${item.slug}.html`,
+      ogImage: toAbsoluteUrl(
+        item.frontmatter.ogImage || item.frontmatter.heroImage || item.frontmatter.thumbnail || "/images/profile.jpg"
+      ),
       activePage: "portfolio",
       content: generatePortfolioItemContent(item, portfolioItems),
     },
@@ -533,6 +555,13 @@ const pages = [
     data: {
       title: `${item.frontmatter.title} - FathurDev`,
       description: item.frontmatter.description,
+      ogTitle: `${item.frontmatter.title} - FathurDev`,
+      ogDescription: item.frontmatter.description,
+      ogType: "article",
+      ogUrl: `${SITE_URL}/training/${item.slug}.html`,
+      ogImage: toAbsoluteUrl(
+        item.frontmatter.ogImage || item.frontmatter.heroImage || item.frontmatter.thumbnail || "/images/profile.jpg"
+      ),
       activePage: "training",
       content: generateTrainingItemContent(item, trainingItems),
     },

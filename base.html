@@ -19,6 +19,31 @@
       rel="stylesheet"
     />
     <meta name="description" content="<%= description %>" />
+    <%
+      const _siteUrl = typeof siteUrl !== 'undefined' ? siteUrl : 'https://fathurdev.uk';
+      const _ogTitle = typeof ogTitle !== 'undefined' ? ogTitle : title;
+      const _ogDescription = typeof ogDescription !== 'undefined' ? ogDescription : description;
+      const _ogType = typeof ogType !== 'undefined' ? ogType : 'website';
+      const _ogUrl = typeof ogUrl !== 'undefined' ? ogUrl : _siteUrl;
+      const _ogImage = typeof ogImage !== 'undefined' ? ogImage : '/images/profile.jpg';
+      const _siteName = typeof siteName !== 'undefined' ? siteName : 'FathurDev';
+      const _twitterCard = typeof twitterCard !== 'undefined' ? twitterCard : 'summary_large_image';
+      const _twitterSite = typeof twitterSite !== 'undefined' ? twitterSite : '@cyberfly';
+      const _twitterCreator = typeof twitterCreator !== 'undefined' ? twitterCreator : '@cyberfly';
+      const _ogImageAbsolute = _ogImage.startsWith('http') ? _ogImage : `${_siteUrl}${_ogImage}`;
+    %>
+    <meta property="og:title" content="<%= _ogTitle %>" />
+    <meta property="og:description" content="<%= _ogDescription %>" />
+    <meta property="og:type" content="<%= _ogType %>" />
+    <meta property="og:url" content="<%= _ogUrl %>" />
+    <meta property="og:image" content="<%= _ogImageAbsolute %>" />
+    <meta property="og:site_name" content="<%= _siteName %>" />
+    <meta name="twitter:card" content="<%= _twitterCard %>" />
+    <meta name="twitter:title" content="<%= _ogTitle %>" />
+    <meta name="twitter:description" content="<%= _ogDescription %>" />
+    <meta name="twitter:image" content="<%= _ogImageAbsolute %>" />
+    <meta name="twitter:site" content="<%= _twitterSite %>" />
+    <meta name="twitter:creator" content="<%= _twitterCreator %>" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body
