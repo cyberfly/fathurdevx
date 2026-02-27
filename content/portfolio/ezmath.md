@@ -11,7 +11,7 @@ tags:
   - TailwindCSS
 liveUrl: https://cyberfly.github.io/ezmath/
 sourceUrl: https://github.com/cyberfly/ezmath
-order: 1
+order: 2
 challenge: "Making math practice engaging for children during school holidays while providing a motivating reward system that encourages continuous learning."
 solution: "Developed a gamified PWA with a virtual pet evolution system that works offline. Kids solve math problems to earn stars that help their pet evolve from an egg to a legendary dragon, creating emotional investment in their progress."
 ---
