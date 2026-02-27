@@ -9,6 +9,80 @@ window.Alpine = Alpine
 // Start Alpine
 Alpine.start()
 
+function initImageModal() {
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="image-modal-backdrop" data-image-modal-close></div>
+    <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button type="button" class="image-modal-close" data-image-modal-close aria-label="Close image preview">×</button>
+      <img class="image-modal-image" src="" alt="" />
+      <p class="image-modal-caption"></p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const modalImage = modal.querySelector('.image-modal-image');
+  const modalCaption = modal.querySelector('.image-modal-caption');
+
+  const openImageModal = (src, alt = '') => {
+    if (!src) return;
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modalCaption.textContent = alt;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('image-modal-open');
+  };
+
+  const closeImageModal = () => {
+    if (!modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    modalImage.alt = '';
+    modalCaption.textContent = '';
+    document.body.classList.remove('image-modal-open');
+  };
+
+  document.addEventListener('click', (event) => {
+    const closeTarget = event.target.closest('[data-image-modal-close]');
+    if (closeTarget) {
+      closeImageModal();
+      return;
+    }
+
+    const customTrigger = event.target.closest('.js-image-modal-trigger');
+    if (customTrigger) {
+      openImageModal(
+        customTrigger.getAttribute('data-modal-src'),
+        customTrigger.getAttribute('data-modal-alt') || ''
+      );
+      return;
+    }
+
+    const manualImage = event.target.closest('img[data-modal="true"]');
+    if (!manualImage) return;
+    if (manualImage.closest('a') || manualImage.closest('.js-image-modal-trigger')) return;
+
+    openImageModal(
+      manualImage.dataset.modalSrc || manualImage.currentSrc || manualImage.src,
+      manualImage.dataset.modalAlt || manualImage.alt || ''
+    );
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeImageModal();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initImageModal();
+});
+
 // Contact Form Handler
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
