@@ -13,8 +13,12 @@
     loading: true,
     error: null,
     async init() {
+      if (this.loading) return;
+      this.loading = true;
+      this.error = null;
       try {
         const response = await fetch('https://api.github.com/users/cyberfly/repos?per_page=100&sort=updated');
+        if (response.status === 403) throw new Error('GitHub API rate limit reached. Please try again in a few minutes.');
         if (!response.ok) throw new Error('GitHub API request failed (' + response.status + ')');
         const data = await response.json();
         this.repos = data
@@ -93,7 +97,7 @@
       <h2 class="font-heading font-bold text-2xl mb-3">Couldn't load repos</h2>
       <p class="text-mutedForeground mb-8" x-text="error"></p>
       <button
-        @click="loading = true; error = null; init()"
+        @click="init()"
         class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-full border-2 border-border-dark shadow-hard hover:shadow-hard-hover hover:-translate-y-0.5 transition-all"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
