@@ -48,7 +48,9 @@ The existing copy was written from the product's perspective, leading with featu
 
 **3. CTA Problem**
 
-The website had multiple CTAs competing for attention, one pointing to the pricing page, another to the free tools. This split focus created confusion. Visitors who landed on the pricing page got scared off, the plans were priced in Euros, which felt unfamiliar and expensive to a largely English-speaking audience that wasn't yet convinced of the value. Those who weren't ready still had no clear sense of what Kafkai actually offered. The unclear messaging made both paths feel like dead ends.
+The site had multiple CTAs competing for attention, splitting focus between free tools and sign-up. Instead of guiding visitors toward one clear action, the page gave them options, and most picked none. 
+
+On top of that, the primary "Get Started" button sent visitors straight to the pricing page before they'd seen enough to care. Landing on pricing before understanding the value is a reliable way to lose someone, and that's exactly what was happening.
 
 **4. Developer Experience Problem**
 
