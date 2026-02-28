@@ -225,10 +225,19 @@
         this.loading = true;
         this.error = null;
         try {
-          const response = await fetch('https://api.github.com/users/cyberfly/repos?per_page=100&sort=updated');
-          if (response.status === 403) throw new Error('GitHub API rate limit reached. Please try again in a few minutes.');
-          if (!response.ok) throw new Error('GitHub API request failed (' + response.status + ')');
-          const data = await response.json();
+          const CACHE_KEY = 'cyberfly_repos';
+          const CACHE_TTL = 24 * 60 * 60 * 1000; // 1 day in ms
+          const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+          let data;
+          if (cached && Date.now() - cached.ts < CACHE_TTL) {
+            data = cached.data;
+          } else {
+            const response = await fetch('https://api.github.com/users/cyberfly/repos?per_page=100&sort=updated');
+            if (response.status === 403) throw new Error('GitHub API rate limit reached. Please try again in a few minutes.');
+            if (!response.ok) throw new Error('GitHub API request failed (' + response.status + ')');
+            data = await response.json();
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+          }
           this.repos = data
             .filter(repo => this.SELECTED_REPOS.includes(repo.name))
             .sort((a, b) => this.SELECTED_REPOS.indexOf(a.name) - this.SELECTED_REPOS.indexOf(b.name));
