@@ -32,15 +32,13 @@ This is how the website looked before the V4 overhaul.
 
 ## Why It Needed to Change
 
-I started by auditing the existing website and preparing a slide deck that laid out three core problems:
-
-![Presenting current website issues to the team](/images/kafkaiv4/kafkaiv4-slide-problem.avif)
-
 **Researched the Problem Space**
 
 Before making any decisions, I dug into what was actually going wrong. I looked at where users were dropping off, what the existing messaging was promising versus what the product could deliver, and how competitors were positioning themselves. This grounded every decision that followed in evidence rather than assumptions.
 
-I presented these findings to the team, backed by evidence from the site analytics and user behavior patterns.
+I audited the existing website and presented the findings to the team in a slide deck, backed by site analytics and user behavior patterns, that laid out three core problems:
+
+![Presenting current website issues to the team](/images/kafkaiv4/kafkaiv4-slide-problem.avif)
 
 **1. Positioning Problem**
 
