@@ -1,7 +1,7 @@
 ---
 title: "StaticBase: I built my own static site starter"
 slug: staticbase-tools
-date: 2026-03-01
+date: 2026-02-01
 description: "I built StaticBase after feeling too much complexity in modern frameworks and wanting a simpler way to ship static websites."
 tags:
   - Open Source
