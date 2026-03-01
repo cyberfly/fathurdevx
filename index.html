@@ -337,6 +337,45 @@
       </div>
     </div>
 
+    <!-- Card: Agentic Skills -->
+    <div
+      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:rotate-1 transition-all duration-300 group animate-on-scroll-rotate"
+    >
+      <div
+        class="h-4 bg-accent border-b-2 border-border-dark rounded-t-[10px]"
+      ></div>
+      <div class="p-8 pt-12 relative">
+        <!-- Floating Icon -->
+        <div
+          class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-2 border-border-dark rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#8B5CF6"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
+            <circle cx="9" cy="14" r="1" fill="#8B5CF6" stroke="none" />
+            <circle cx="15" cy="14" r="1" fill="#8B5CF6" stroke="none" />
+          </svg>
+        </div>
+
+        <h3 class="font-heading font-bold text-xl text-center mb-3">
+          Agentic Engineering
+        </h3>
+        <p class="text-center text-mutedForeground leading-relaxed">
+          Designing and orchestrating AI agents, building autonomous workflows,
+          and integrating LLMs into products that think and act independently.
+        </p>
+      </div>
+    </div>
+
     <!-- Card 4: Data-Driven Decisions -->
     <div
       class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:-rotate-1 transition-all duration-300 group animate-on-scroll-scale"
@@ -378,7 +417,7 @@
 
     <!-- Card 5: Stakeholder Communication -->
     <div
-      class="bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:rotate-1 transition-all duration-300 group animate-on-scroll-rotate"
+      class="hidden bg-white border-2 border-border-dark rounded-xl shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:rotate-1 transition-all duration-300 group animate-on-scroll-rotate"
     >
       <div
         class="h-4 bg-accent border-b-2 border-border-dark rounded-t-[10px]"
@@ -680,7 +719,7 @@
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
     <!-- Frontend -->
     <div
       class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
@@ -829,7 +868,73 @@
       </div>
     </div>
 
-    <!-- Others -->
+    <!-- AI & Agentic -->
+    <div
+      class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
+    >
+      <div class="flex items-center gap-3 mb-6">
+        <div
+          class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-white border-2 border-border-dark shadow-sm group-hover:rotate-12 transition-transform"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
+            <circle cx="9" cy="14" r="1" fill="currentColor" stroke="none" />
+            <circle cx="15" cy="14" r="1" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <h3 class="font-heading font-bold text-2xl">AI & Agentic</h3>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >OpenAI SDK</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >LangChain</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >Claude Code</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >Claude Agent SDK</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >Cursor</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >Codex</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >AntiGravity</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >GitHub Copilot</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-accent hover:text-white hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
+          >n8n</span
+        >
+      </div>
+    </div>
+
+    <!-- Tools & More -->
     <div
       class="bg-white border-2 border-border-dark rounded-2xl p-8 shadow-hard hover:shadow-hard-hover hover:-translate-y-2 transition-all duration-300 group animate-on-scroll-scale"
     >
@@ -859,11 +964,15 @@
       <div class="flex flex-wrap gap-3">
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
-          >Git & GitHub</span
+          >Git</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default"
           >Docker</span
+        >
+        <span
+          class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
+          >Jira & Trello</span
         >
         <span
           class="px-4 py-2 bg-muted border-2 border-border-dark rounded-full font-bold text-sm shadow-sm hover:bg-tertiary hover:text-foreground hover:-translate-y-1 hover:rotate-2 transition-all cursor-default"
@@ -922,10 +1031,10 @@
     <h2
       class="font-heading font-black text-3xl md:text-5xl text-foreground mb-6 relative z-10"
     >
-      Ready to turn your vision <br /><span
-        class="text-white drop-shadow-[4px_4px_0_#1E293B]"
-        >INTO REALITY</span
-      >?
+      Ship products customers actually use <br /><span
+        class="text-white drop-shadow-[4px_4px_0_#1E293B] uppercase"
+        >actually use</span
+      >
     </h2>
     <a
       href="/contact.html"
