@@ -24,6 +24,12 @@ solution: "Led a full repositioning to 'Competitive Intelligence Platform', grou
 
 How I took Kafkai from a website with broken positioning and a painful dev experience to a fully rebuilt, live site, through audit, strategy, copywriting, design direction, and implementation.
 
+## Before Update
+
+This is how the website looked before the V4 overhaul.
+
+<thumbnail src="/images/kafkaiv4/kafkai-before-thumb.avif" full="/images/kafkaiv4/kafkai-before-full.png" alt="Kafkai website before the V4 update" caption="Click to view full-size screenshot" width="800" />
+
 ## Why It Needed to Change
 
 I started by auditing the existing website and preparing a slide deck that laid out three core problems:
