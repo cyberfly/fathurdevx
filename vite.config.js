@@ -85,6 +85,7 @@ const __dirname = resolve();
 // Use root for custom domain builds so asset URLs resolve correctly.
 const BASE_PATH = "";
 const SITE_URL = "https://fathurdev.uk";
+const GA_MEASUREMENT_ID = (process.env.VITE_GA_MEASUREMENT_ID || "").trim();
 
 function toAbsoluteUrl(pathOrUrl) {
   if (!pathOrUrl) return null;
@@ -630,13 +631,21 @@ const rewrites = [
   })),
 ];
 
+const pagesWithAnalytics = pages.map((page) => ({
+  ...page,
+  data: {
+    ...page.data,
+    gaMeasurementId: GA_MEASUREMENT_ID,
+  },
+}));
+
 export default defineConfig({
   plugins: [
     contentWatcherPlugin(),
     tailwindcss(),
     createMpaPlugin({
       template: "base.html",
-      pages,
+      pages: pagesWithAnalytics,
       rewrites,
     }),
   ],

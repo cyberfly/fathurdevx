@@ -44,6 +44,17 @@
     <meta name="twitter:image" content="<%= _ogImageAbsolute %>" />
     <meta name="twitter:site" content="<%= _twitterSite %>" />
     <meta name="twitter:creator" content="<%= _twitterCreator %>" />
+    <% if (typeof gaMeasurementId !== 'undefined' && gaMeasurementId) { %>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaMeasurementId %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "<%= gaMeasurementId %>");
+      </script>
+    <% } %>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body
