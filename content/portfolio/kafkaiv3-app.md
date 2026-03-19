@@ -11,7 +11,7 @@ tags:
   - Django
 liveUrl: https://kafkai.com
 sourceUrl: #
-order: 3
+order: 2
 challenge: "V2 lacked deep competitive analysis and keyword difficulty insights, which users needed to create content that actually ranks in competitive niches."
 solution: "Redesigned the platform using HTMX for a more dynamic experience and integrated advanced SEO APIs to provide real-time competitor data and keyword analysis."
 ---

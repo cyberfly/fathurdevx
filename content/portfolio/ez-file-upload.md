@@ -11,7 +11,7 @@ tags:
   - Developer Tools
 liveUrl: https://marketplace.visualstudio.com/items?itemName=fathurdev.ez-file-upload
 sourceUrl: https://github.com/cyberfly/vscode-uploader
-order: 2
+order: 4
 challenge: "The painful workflow of exiting full-screen mode on Mac, dragging files from Finder, then going back to full-screen just to upload files into VS Code workspace folders."
 solution: "Built a VS Code extension with intelligent context menu integration and Command Palette support that adapts seamlessly between local and remote environments, making file uploads as simple as right-click → upload."
 ---

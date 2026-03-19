@@ -11,7 +11,7 @@ tags:
   - Group Management
   - QR Code
 liveUrl: https://dahbayar.app
-order: 3
+order: 4
 challenge: "Group organizers struggle to track who has paid and who hasn't for activities like badminton sessions, dinners, or team events. Manually copying payment details and tracking payment status across WhatsApp messages is tedious and error-prone, leading to confusion and repeated follow-ups."
 solution: "Built a PWA that transforms any list (from WhatsApp groups or manual entry) into an organized payment tracker. Organizers can paste participant lists, set amounts, save payment QR codes once, and share payment info with one tap - showing exactly who hasn't paid yet. No more copy-pasting bank details or forgetting who paid."
 ---
